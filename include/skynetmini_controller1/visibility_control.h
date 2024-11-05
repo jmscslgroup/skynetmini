@@ -1,0 +1,32 @@
+#ifndef SKYNETMINI_CONTROLLER1__VISIBILITY_CONTROL_H_
+#define SKYNETMINI_CONTROLLER1__VISIBILITY_CONTROL_H_
+#if defined _WIN32 || defined __CYGWIN__
+  #ifdef __GNUC__
+    #define SKYNETMINI_CONTROLLER1_EXPORT __attribute__ ((dllexport))
+    #define SKYNETMINI_CONTROLLER1_IMPORT __attribute__ ((dllimport))
+  #else
+    #define SKYNETMINI_CONTROLLER1_EXPORT __declspec(dllexport)
+    #define SKYNETMINI_CONTROLLER1_IMPORT __declspec(dllimport)
+  #endif
+  #ifdef SKYNETMINI_CONTROLLER1_BUILDING_LIBRARY
+    #define SKYNETMINI_CONTROLLER1_PUBLIC SKYNETMINI_CONTROLLER1_EXPORT
+  #else
+    #define SKYNETMINI_CONTROLLER1_PUBLIC SKYNETMINI_CONTROLLER1_IMPORT
+  #endif
+  #define SKYNETMINI_CONTROLLER1_PUBLIC_TYPE SKYNETMINI_CONTROLLER1_PUBLIC
+  #define SKYNETMINI_CONTROLLER1_LOCAL
+#else
+  #define SKYNETMINI_CONTROLLER1_EXPORT __attribute__ ((visibility("default")))
+  #define SKYNETMINI_CONTROLLER1_IMPORT
+  #if __GNUC__ >= 4
+    #define SKYNETMINI_CONTROLLER1_PUBLIC __attribute__ ((visibility("default")))
+    #define SKYNETMINI_CONTROLLER1_LOCAL  __attribute__ ((visibility("hidden")))
+  #else
+    #define SKYNETMINI_CONTROLLER1_PUBLIC
+    #define SKYNETMINI_CONTROLLER1_LOCAL
+  #endif
+  #define SKYNETMINI_CONTROLLER1_PUBLIC_TYPE
+#endif
+#endif  // SKYNETMINI_CONTROLLER1__VISIBILITY_CONTROL_H_
+// Generated 05-Nov-2024 10:35:58
+// Copyright 2019-2020 The MathWorks, Inc.
