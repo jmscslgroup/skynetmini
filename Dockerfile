@@ -5,7 +5,7 @@ FROM ros:noetic-robot
 SHELL ["/bin/bash", "-c"]
 
 # Update and install necessary packages
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git unzip
 
 # Set up the ROS entry point for bash
 RUN echo "source /ros_entrypoint.sh" >> /etc/bash.bashrc
