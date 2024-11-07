@@ -5,7 +5,7 @@
   use a namespace for the node in which we are running. -->
 
   <!-- change the output directory and prefix if this is not where yours is mapped -->
-  <arg name="bagfileout" default="/project/skynetmini"/>
+  <arg name="bagfileout" default="/ros/catkin_ws/skynetmini"/>
 
   <!-- sets the initial position of the lead car. -->
   <param name="/leadcar/x0" type="double" value="40.0" />
@@ -32,8 +32,10 @@
   <group ns="egocar">
     <node pkg="carsimplesimulink" type="carsimplesimulink" name="carsimplesimulink_node">
       </node>
-    <node pkg="skynetmini" type="skynetmini" name="skynetmini_node">
+    <node pkg="skynetmini_controller1" type="skynetmini_controller1" name="skynetmini_controller1_node">
       <remap from="/cmd_accel" to="/egocar/cmd_accel" />
+      <remap from="/lead_dist" to="/egocar/lead_dist" />
+      <remap from="/car/state/vel_x" to="/egocar/vel_x" />
     </node>
   </group>
 
