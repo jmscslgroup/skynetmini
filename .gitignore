@@ -1,0 +1,58 @@
+# Ignore node_modules for Node.js projects
+node_modules/
+
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore environment files
+.env
+.venv/
+.env.local
+.env.*.local
+
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore ROS build files
+build/
+devel/
+src/AV-T_bag
+src/carsimplesimulink
+src/odometer
+src/skynetmini
+src/subtractor
+catkin_ws/logs/
+catkin_ws/build/
+*.bag
+
+# Ignore macOS files
+*.DS_Store
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore JetBrains IDE settings
+.idea/
+
+# Ignore general archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Ignore OS backup files
+*.
