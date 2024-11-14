@@ -2,6 +2,8 @@
 # Source ROS setup
 source /ros_entrypoint.sh
 
+roscore &
+
 # Set up the workspace if it hasn't been built
 if [ ! -f "/ros/catkin_ws/devel/setup.bash" ]; then
     # Navigate to the catkin workspace
