@@ -1,5 +1,40 @@
 # skynetmini
 
+## Setup Docker container (Docker Desktop)
+
+```
+docker run -it ros:noetic-robot bash
+source ros_entrypoint.sh
+mkdir ros
+mkdir ros/catkin_ws
+mkdir ros/catkin_ws/src
+sudo apt update
+sudo apt install git
+cd ros/catkin_ws/src
+git clone https://github.com/jmscslgroup/skynetmini
+git clone https://github.com/jmscslgroup/odometer
+git clone https://github.com/jmscslgroup/subtractor
+git clone https://github.com/jmscslgroup/carsimplesimulink
+cp skynetmini/skynetmini.launch ..
+cd ..
+catkin_make
+```
+
+Then, copy docker file to container_name:/ros/catkin_ws
+
+## Usage
+
+First, in Docker Desktop, make sure the container is running.
+
+```
+docker exec -it container_name bash
+source ros_entrypoint.sh
+cd ros/catkin_ws
+catkin_make
+source devel/setup.sh
+roslaunch skynetmini.launch
+```
+
 First pull the docker container with ros
 
 docker pull ros:noetic-robot
