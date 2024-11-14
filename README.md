@@ -20,7 +20,12 @@ cd ..
 catkin_make
 ```
 
-Then, copy docker file to container_name:/ros/catkin_ws
+In a different screen
+
+```
+docker cp path/to/bag/file container_name:/ros/catkin_ws
+```
+
 
 ## Usage
 
@@ -34,6 +39,9 @@ catkin_make
 source devel/setup.sh
 roslaunch skynetmini.launch
 ```
+
+
+## Old
 
 First pull the docker container with ros
 
