@@ -1,11 +1,11 @@
 //
 // File main.cpp
 //
-// Code generated for Simulink model 'skynetmini_controller1'.
+// Code generated for Simulink model 'skynetmini_controller2'.
 //
-// Model version                  : 1.4
+// Model version                  : 1.29
 // Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
-// C/C++ source code generated on : Tue Nov 05 10:35:54 2024
+// C/C++ source code generated on : Mon Nov 18 04:28:49 2024
 //
 
 #include <stdio.h>

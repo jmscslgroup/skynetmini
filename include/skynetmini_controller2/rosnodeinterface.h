@@ -1,11 +1,11 @@
 //
 // File rosnodeinterface.h
 //
-// Code generated for Simulink model 'skynetmini_controller1'.
+// Code generated for Simulink model 'skynetmini_controller2'.
 //
-// Model version                  : 1.4
+// Model version                  : 1.29
 // Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
-// C/C++ source code generated on : Tue Nov 05 10:35:54 2024
+// C/C++ source code generated on : Mon Nov 18 04:28:49 2024
 //
 
 #ifndef _ROS_MATLAB_NODEINTERFACE_
@@ -30,8 +30,8 @@
 
 #endif                                 //_MSC_VER
 
-#include "skynetmini_controller1.h"
-#include "skynetmini_controller1_types.h"
+#include "skynetmini_controller2.h"
+#include "skynetmini_controller2_types.h"
 #include "rtwtypes.h"
 #include <thread>
 #include <atomic>

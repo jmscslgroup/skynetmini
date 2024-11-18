@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(skynetmini_controller1)
+project(skynetmini_controller2)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 # Set CMAKE_BUILD_TYPE
 set(CMAKE_BUILD_TYPE Release)
@@ -11,6 +11,10 @@ endif()
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
+# For Windows, MSVC compiler disable boost autolinking
+add_definitions( -DBOOST_ALL_NO_LIB )
+# And force all boost libraries to link dynamically
+add_definitions( -DBOOST_ALL_DYN_LINK )
 if(ALIAS_ROS1_CLASS_LOADER)
     add_definitions(-Dclass_loader=ros1_class_loader)
 endif()
@@ -44,7 +48,7 @@ include_directories(
   ${PROJECT_SOURCE_DIR}
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
-  "include/skynetmini_controller1"
+  "include/skynetmini_controller2"
 )
 set (CMAKE_SKIP_BUILD_RPATH false)
 set (CMAKE_BUILD_WITH_INSTALL_RPATH true)
@@ -55,24 +59,24 @@ file(GLOB ${PROJECT_NAME}_C_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} ${PROJECT_SOU
 ## Get list of .cpp files in project source directory
 file(GLOB ${PROJECT_NAME}_CPP_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/*.cpp)
 # Declare executable - Node
-add_executable(skynetmini_controller1
+add_executable(skynetmini_controller2
   src/slros_generic_param.cpp
   src/main.cpp
   src/rosnodeinterface.cpp
   src/rtGetInf.cpp
   src/rtGetNaN.cpp
   src/rt_nonfinite.cpp
-  src/skynetmini_controller1.cpp
-  src/skynetmini_controller1_data.cpp
+  src/skynetmini_controller2.cpp
+  src/skynetmini_controller2_data.cpp
   src/slros_busmsg_conversion.cpp
   src/slros_initialize.cpp
 )
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-#target_compile_options(skynetmini_controller1 PUBLIC  $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>: -Wall -Wextra -Wpedantic >)
+#target_compile_options(skynetmini_controller2 PUBLIC  $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>: -Wall -Wextra -Wpedantic >)
 endif()
-target_compile_options(skynetmini_controller1 PUBLIC 
+target_compile_options(skynetmini_controller2 PUBLIC 
   $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>:
-  -DMODEL=skynetmini_controller1
+  -DMODEL=skynetmini_controller2
   -DNUMST=1
   -DNCSTATES=0
   -DHAVESTDIO
@@ -80,9 +84,8 @@ target_compile_options(skynetmini_controller1 PUBLIC
   -DCLASSIC_INTERFACE=0
   -DALLOCATIONFCN=0
   -DTID01EQ=0
-  -DTERMFCN=1
   -DONESTEPFCN=1
-  -DMAT_FILE=0
+  -DTERMFCN=1
   -DMULTI_INSTANCE_CODE=0
   -DINTEGER_CODE=0
   -DMT=0
@@ -96,34 +99,34 @@ target_compile_options(skynetmini_controller1 PUBLIC
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(
-  skynetmini_controller1
+  skynetmini_controller2
   ${catkin_EXPORTED_TARGETS}
 )
-target_include_directories(skynetmini_controller1 PUBLIC
+target_include_directories(skynetmini_controller2 PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(
-  skynetmini_controller1 
+  skynetmini_controller2 
     ${catkin_LIBRARIES}
     ${Boost_LIBRARIES}
     ${CMAKE_DL_LIBS}
 )
-install(TARGETS skynetmini_controller1
+install(TARGETS skynetmini_controller2
   EXPORT export_${PROJECT_NAME}
   DESTINATION lib/${PROJECT_NAME})
 foreach(file_i ${CUDA_BINS})
 add_custom_command(
-                   TARGET skynetmini_controller1
+                   TARGET skynetmini_controller2
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND}
-                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/codegen/exe/skynetmini_controller1/${file_i}
+                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/codegen/exe/skynetmini_controller2/${file_i}
 				   )
 add_custom_command(
-                   TARGET skynetmini_controller1
+                   TARGET skynetmini_controller2
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND}
-                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/skynetmini_controller1_ert_rtw/${file_i}
+                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/skynetmini_controller2_ert_rtw/${file_i}
 				   )
 endforeach(file_i)
-# Generated on Tue Nov 05 10:35:58 2024
+# Generated on Mon Nov 18 04:28:51 2024

@@ -1,21 +1,22 @@
-//
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-//
-// File: rt_nonfinite.cpp
-//
-// Code generated for Simulink model 'skynetmini_controller1'.
-//
-// Model version                  : 1.4
-// Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
-// C/C++ source code generated on : Tue Nov  5 10:35:42 2024
-//
-// Target selection: ert.tlc
-// Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
-// Code generation objectives: Unspecified
-// Validation result: Not run
-//
+/*
+ * rt_nonfinite.cpp
+ *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
+ * Code generation for model "skynetmini_controller2".
+ *
+ * Model version              : 1.29
+ * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
+ * C++ source code generated on : Mon Nov 18 04:28:32 2024
+ *
+ * Target selection: ert.tlc
+ * Note: GRT includes extra infrastructure and instrumentation for prototyping
+ * Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ */
 
 extern "C"
 {
@@ -55,10 +56,10 @@ extern "C"
 
 extern "C"
 {
-  //
-  // Initialize the rtInf, rtMinusInf, and rtNaN needed by the
-  // generated code. NaN is initialized as non-signaling. Assumes IEEE.
-  //
+  /*
+   * Initialize the rtInf, rtMinusInf, and rtNaN needed by the
+   * generated code. NaN is initialized as non-signaling. Assumes IEEE.
+   */
   void rt_InitInfAndNaN(size_t realSize)
   {
     (void) (realSize);
@@ -70,19 +71,19 @@ extern "C"
     rtMinusInfF = rtGetMinusInfF();
   }
 
-  // Test if value is infinite
+  /* Test if value is infinite */
   boolean_T rtIsInf(real_T value)
   {
     return (boolean_T)((value==rtInf || value==rtMinusInf) ? 1U : 0U);
   }
 
-  // Test if single-precision value is infinite
+  /* Test if single-precision value is infinite */
   boolean_T rtIsInfF(real32_T value)
   {
     return (boolean_T)(((value)==rtInfF || (value)==rtMinusInfF) ? 1U : 0U);
   }
 
-  // Test if value is not a number
+  /* Test if value is not a number */
   boolean_T rtIsNaN(real_T value)
   {
     boolean_T result = (boolean_T) 0;
@@ -131,7 +132,7 @@ extern "C"
     return result;
   }
 
-  // Test if single-precision value is not a number
+  /* Test if single-precision value is not a number */
   boolean_T rtIsNaNF(real32_T value)
   {
     IEEESingle tmp;
@@ -140,9 +141,3 @@ extern "C"
                        (tmp.wordL.wordLuint & 0x007FFFFF) != 0 );
   }
 }
-
-//
-// File trailer for generated code.
-//
-// [EOF]
-//

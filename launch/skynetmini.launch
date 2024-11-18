@@ -11,7 +11,7 @@
   <param name="/leadcar/x0" type="double" value="40.0" />
 
   <!-- sets the initial velocity of the ego car. -->
-  <param name="/egocar/v0" type="double" value="10.0" />
+  <param name="/egocar/v0" type="double" value="0.0" />
   <!-- sets the initial position of the ego car. -->
   <param name="/egocar/x0" type="double" value="0.0" />
 
@@ -32,9 +32,10 @@
   <group ns="egocar">
     <node pkg="carsimplesimulink" type="carsimplesimulink" name="carsimplesimulink_node">
       </node>
-    <node pkg="skynetmini_controller1" type="skynetmini_controller1" name="skynetmini_controller1_node">
+    <node pkg="skynetmini_controller2" type="skynetmini_controller2" name="skynetmini_controller2_node">
       <remap from="/cmd_accel" to="/egocar/cmd_accel" />
       <remap from="/lead_dist" to="/egocar/lead_dist" />
+      <remap from="/rel_vel" to="/egocar/rel_vel" />
       <remap from="/car/state/vel_x" to="/egocar/vel_x" />
     </node>
   </group>

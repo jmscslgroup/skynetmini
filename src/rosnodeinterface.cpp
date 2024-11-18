@@ -1,11 +1,11 @@
 //
 // File rosnodeinterface.cpp
 //
-// Code generated for Simulink model 'skynetmini_controller1'.
+// Code generated for Simulink model 'skynetmini_controller2'.
 //
-// Model version                  : 1.4
+// Model version                  : 1.29
 // Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
-// C/C++ source code generated on : Tue Nov 05 10:35:54 2024
+// C/C++ source code generated on : Mon Nov 18 04:28:49 2024
 //
 
 #ifdef _MSC_VER
@@ -30,7 +30,7 @@
 
 #endif                                 //_MSC_VER
 
-#include "skynetmini_controller1.h"
+#include "skynetmini_controller2.h"
 #include "rosnodeinterface.h"
 #include <thread>
 #include <chrono>
@@ -65,11 +65,11 @@ namespace ros
     {
       try {
         mNode = std::make_shared<ros::NodeHandle>();
-        ROS_INFO("** Starting the model \"skynetmini_controller1\" **\n");
+        ROS_INFO("** Starting the model \"skynetmini_controller2\" **\n");
 
         // initialize the model which will initialize the publishers and subscribers
-        rtmSetErrorStatus(skynetmini_controller1_M, (NULL));
-        skynetmini_controller1_initialize();
+        rtmSetErrorStatus(skynetmini_controller2_M, (NULL));
+        skynetmini_controller2_initialize();
 
         // create the threads for the rates in the Model
         mBaseRateThread = std::make_shared<std::thread>(&NodeInterface::
@@ -98,13 +98,13 @@ namespace ros
 
 #ifndef rtmGetStopRequested
 
-      return (!(rtmGetErrorStatus(skynetmini_controller1_M)
+      return (!(rtmGetErrorStatus(skynetmini_controller2_M)
                 == (NULL)));
 
 #else
 
-      return (!(rtmGetErrorStatus(skynetmini_controller1_M)
-                == (NULL)) || rtmGetStopRequested(skynetmini_controller1_M));
+      return (!(rtmGetErrorStatus(skynetmini_controller2_M)
+                == (NULL)) || rtmGetStopRequested(skynetmini_controller2_M));
 
 #endif
 
@@ -122,7 +122,7 @@ namespace ros
           mSchedulerTimer.reset();
         }
 
-        skynetmini_controller1_terminate();
+        skynetmini_controller2_terminate();
         mNode.reset();
       }
     }
@@ -140,7 +140,7 @@ namespace ros
     // Base-rate task
     void NodeInterface::baseRateTask(void)
     {
-      mRunModel = (rtmGetErrorStatus(skynetmini_controller1_M) ==
+      mRunModel = (rtmGetErrorStatus(skynetmini_controller2_M) ==
                    (NULL));
       while (mRunModel) {
         mBaseRateSem.wait();
@@ -153,7 +153,7 @@ namespace ros
 
         if (!mRunModel)
           break;
-        skynetmini_controller1_step(
+        skynetmini_controller2_step(
           );
         mRunModel = !NodeInterface::getStopRequestedFlag();
       }

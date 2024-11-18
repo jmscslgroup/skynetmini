@@ -1,21 +1,23 @@
-//
-// Academic License - for use in teaching, academic research, and meeting
-// course requirements at degree granting institutions only.  Not for
-// government, commercial, or other organizational use.
-//
-// File: rt_nonfinite.h
-//
-// Code generated for Simulink model 'skynetmini_controller1'.
-//
-// Model version                  : 1.4
-// Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
-// C/C++ source code generated on : Tue Nov  5 10:35:42 2024
-//
-// Target selection: ert.tlc
-// Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
-// Code generation objectives: Unspecified
-// Validation result: Not run
-//
+/*
+ * rt_nonfinite.h
+ *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
+ * Code generation for model "skynetmini_controller2".
+ *
+ * Model version              : 1.29
+ * Simulink Coder version : 24.1 (R2024a) 19-Nov-2023
+ * C++ source code generated on : Mon Nov 18 04:28:32 2024
+ *
+ * Target selection: ert.tlc
+ * Note: GRT includes extra infrastructure and instrumentation for prototyping
+ * Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ */
+
 #ifndef rt_nonfinite_h_
 #define rt_nonfinite_h_
 #include <stddef.h>
@@ -62,13 +64,7 @@ extern "C"
 
 #ifdef __cplusplus
 
-}                                      // extern "C"
+}                                      /* extern "C" */
 
 #endif
-#endif                                 // rt_nonfinite_h_
-
-//
-// File trailer for generated code.
-//
-// [EOF]
-//
+#endif                                 /* rt_nonfinite_h_ */
