@@ -1,0 +1,1 @@
+This project explores the potential of Adaptive Cruise Control (ACC) systems to enhance fuel efficiency in vehicles while ensuring effective and safe car-following behavior.
