@@ -17,7 +17,7 @@ This project explores the potential of Adaptive Cruise Control (ACC) systems to 
 
 ---
 
-### Setup Docker container (Docker Desktop)
+### Docker Container Setup (Docker Desktop)
 
 ```
 docker run -it ros:noetic-robot bash
