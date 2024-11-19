@@ -1,12 +1,21 @@
-# skynetmini
+# Skynet Mini
 
-## Group: Skynet Mini
-Giorgio Antonacci 
-Yizhou Guo
-Azhar Hasan
+**CS 5891**
 
-## Title: Maximize Fuel Efficiency in Traffic-Friendly Car Following Model
-### Goal: The goal of this project is to explore the potential of Adaptive Cruise Control (ACC) systems to improve fuel efficiency in vehicles while maintaining effective car-following behavior
+### Team Members:
+- Giorgio Antonacci  
+- Yizhou Guo  
+- Azhar Hasan  
+
+---
+
+## Project Title:  
+**Fuel-Efficient and Traffic-Friendly Car Following Model**
+
+## Project Goal:  
+This project explores the potential of Adaptive Cruise Control (ACC) systems to enhance fuel efficiency in vehicles while ensuring effective and safe car-following behavior.
+
+---
 
 ### Setup Docker container (Docker Desktop)
 
